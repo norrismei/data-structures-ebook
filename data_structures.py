@@ -15,11 +15,15 @@ class Stack:
 
     def pop(self):
         """Remove an item from the stack"""
-        return self._items.pop()
+        if not self.is_empty():
+            return self._items.pop()
+        return "Cannot pop. Stack is empty."
 
     def peek(self):
         """Get the value of the top item in the stack"""
-        return self._items[-1]
+        if not self.is_empty():
+            return self._items[-1]
+        return "Nothing to peek. Stack is empty."
 
     def size(self):
         """Get the number of items in the stack"""
