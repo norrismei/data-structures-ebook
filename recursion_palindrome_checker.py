@@ -1,7 +1,11 @@
 # from test import testEqual
 
 def remove_white(s):
-    return s
+    alpha_chars = []
+    for char in s:
+        if char.isalpha():
+            alpha_chars.append(char)
+    return "".join(alpha_chars)
 
 def is_pal(s):
     if len(s) <=1:
@@ -12,11 +16,11 @@ def is_pal(s):
         else:
             return False
 
-print(is_pal("hannah"))
+print(is_pal(remove_white("madam i'm adam")))
 
 # testEqual(is_pal(remove_white("x")), True)
 # testEqual(is_pal(remove_white("radar")), True)
 # testEqual(is_pal(remove_white("hello")), False)
-# testEqual(is_pal(removeWremove_whitehite("")), True)
+# testEqual(is_pal(remove_white("")), True)
 # testEqual(is_pal(remove_white("hannah")), True)
 # testEqual(is_pal(remove_white("madam i'm adam")), True)
