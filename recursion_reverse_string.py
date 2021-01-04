@@ -1,9 +1,14 @@
-from test import testEqual
+# from test import testEqual
 
 def reverse(s):
-    return s
+    if len(s) <= 1:
+        return s
+    else:
+        return s[-1] + reverse(s[:-1])
 
-testEqual(reverse("hello"), "olleh")
-testEqual(reverse("l"), "l")
-testEqual(reverse("follow"), "wollof")
-testEqual(reverse(""), "")
+print(reverse(''))
+
+# testEqual(reverse("hello"), "olleh")
+# testEqual(reverse("l"), "l")
+# testEqual(reverse("follow"), "wollof")
+# testEqual(reverse(""), "")
