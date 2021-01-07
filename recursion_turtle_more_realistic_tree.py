@@ -11,9 +11,15 @@ from random import randint
 
 # Modify the branch_len recursively so that instead of always subtracting the same amount you subtract a random amount in some range.
 
+def rand_branch_len(branch_len):
+    return branch_len - randint(0, branch_len//2)
+
+def rand_branch_width(branch_width):
+    return branch_width - branch_width//4
+
 def tree(branch_len, branch_width, t):
     if branch_len > 5:
-        if branch_len < 20:
+        if branch_len < 7:
             t.color("green")
         else:
             t.color("brown")
@@ -21,10 +27,10 @@ def tree(branch_len, branch_width, t):
         t.forward(branch_len)
         right_angle = randint(15, 40)
         t.right(right_angle)
-        tree(branch_len - 15, branch_width - 5, t)
+        tree(rand_branch_len(branch_len), rand_branch_width(branch_width), t)
         left_angle = randint(20, 50)
         t.left(left_angle + right_angle)
-        tree(branch_len - 15, branch_width - 5, t)
+        tree(rand_branch_len(branch_len), rand_branch_width(branch_width), t)
         t.right(left_angle)
         t.up()
         t.backward(branch_len)
