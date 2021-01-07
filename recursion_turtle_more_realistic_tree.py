@@ -1,4 +1,5 @@
 import turtle
+from random import randint
 
 # Modify the recursive tree program using one or all of the following ideas:
 
@@ -18,11 +19,13 @@ def tree(branch_len, branch_width, t):
             t.color("brown")
         t.pensize(branch_width)
         t.forward(branch_len)
-        t.right(20)
+        right_angle = randint(15, 40)
+        t.right(right_angle)
         tree(branch_len - 15, branch_width - 5, t)
-        t.left(40)
+        left_angle = randint(20, 50)
+        t.left(left_angle + right_angle)
         tree(branch_len - 15, branch_width - 5, t)
-        t.right(20)
+        t.right(left_angle)
         t.up()
         t.backward(branch_len)
         t.down()
