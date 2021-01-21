@@ -33,5 +33,15 @@ def get_right_child(root):
 # Write a function that returns a tree using the list of lists functions that looks like:
 # [a, [b, [], [d, [], []]], [c, [e, [], []], [f, [], []]]
 
-def build_tree("a"):
-    set_root_val()
+def build_tree():
+    main_tree = make_binary_tree("a")
+    insert_left(main_tree, "b")
+    insert_right(get_left_child(main_tree), "d")
+    insert_right(main_tree, "c")
+    c_subtree = get_right_child(main_tree)
+    insert_left(c_subtree, "e")
+    insert_right(c_subtree, "f")
+
+    return main_tree
+
+print(build_tree())
