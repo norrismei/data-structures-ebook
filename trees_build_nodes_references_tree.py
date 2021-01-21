@@ -1,3 +1,5 @@
+from test import testEqual
+
 class BinaryTree:
     def __init__(self, root_obj):
         self.key = root_obj
@@ -34,3 +36,15 @@ class BinaryTree:
 
 # Write a function that returns a tree using nodes and references implementation that looks like:
 # ['a', ['b', [], ['d', [], []]], ['c', ['e', [], []], ['f', [], []]]] (in list of lists implementation)
+
+def build_tree():
+    main_tree = BinaryTree("a")
+    main_tree.insert_left("b")
+    b_subtree = main_tree.get_left_child()
+    b_subtree.insert_right("d")
+    main_tree.insert_right("c")
+    c_subtree = main_tree.get_right_child()
+    c_subtree.insert_left("e")
+    c_subtree.insert_right("f")
+
+    return main_tree
